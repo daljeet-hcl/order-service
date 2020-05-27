@@ -42,7 +42,7 @@ public class OrderController {
 
     @Bean
     WebClient webClient() {
-        return WebClient.create("http://localhost:8083");
+        return WebClient.create("http://billq-service:8083");
     }
 
 }
