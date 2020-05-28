@@ -30,7 +30,7 @@ public class OrderController {
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .retrieve()
                 .bodyToMono(String.class)
-                .map(bill -> " - Broadband -" + bill)
+                .map(bill -> System.getenv("plan-name") + bill)
                 .log("Customer billq: ");
 
 
@@ -42,7 +42,7 @@ public class OrderController {
 
     @Bean
     WebClient webClient() {
-        return WebClient.create("http://billq-service:8083");
+        return WebClient.create(System.getenv("billq-service"));
     }
 
 }
