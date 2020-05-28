@@ -26,7 +26,9 @@ public class HeaderExchange implements ExchangeFilterFunction {
                     Map<String, String> headerMap = context.get("headers");
                     ClientRequest newRequest = ClientRequest
                             .from(clientRequest)
-                            .headers(httpHeaders -> headers.forEach(header -> httpHeaders.add(header, headerMap.get(header))))
+                            .headers(httpHeaders -> headers.forEach(header -> 
+							{httpHeaders.add(header, headerMap.get(header));
+							System.out.println(header);}))
                             .build();
                     return exchangeFunction.exchange(newRequest);
                 });

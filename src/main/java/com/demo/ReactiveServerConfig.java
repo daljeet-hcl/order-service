@@ -9,12 +9,12 @@ import org.springframework.web.reactive.function.client.WebClient;
 @EnableConfigurationProperties(DemoProperties.class)
 public class ReactiveServerConfig {
 
-    @Bean
+   /* @Bean
     public WebClient webClient(DemoProperties demoProperties, HeaderExchange headerExchange) {
         return WebClient
                 .builder()
                 .filter(headerExchange)
                 .baseUrl(System.getenv("order-service"))
                 .build();
-    }
+    }*/
 }
