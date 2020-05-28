@@ -20,13 +20,13 @@ public class OrderController {
     @Autowired
     WebClient webClient;
 
-    @GetMapping(value = "/v1/orders/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/orders/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
     public Mono<String> getCustomerOrder(@PathVariable String id){
         log.info("OrderController");
 
         //Mono<String> customerOrder = Mono.just("Broadband");
 
-        Mono<String> billq = webClient.get().uri("/v1/billq/{id}",id)
+        Mono<String> billq = webClient.get().uri("/billq/{id}",id)
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .retrieve()
                 .bodyToMono(String.class)
@@ -39,10 +39,10 @@ public class OrderController {
 
     }
 
-
+/*
     @Bean
     WebClient webClient() {
         return WebClient.create(System.getenv("billq-service"));
-    }
+    }*/
 
 }
