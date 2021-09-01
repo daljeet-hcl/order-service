@@ -37,18 +37,18 @@ public class OrderController {
 		
 		final String finalPlan = plan;
 
-        Mono<String> billq = Mono.just(finalPlan +"49 USD");
+        //Mono<String> billq = Mono.just(finalPlan +"49 USD");
 		
-		/*webClient.get().uri("/billq/{id}",id)
+		return webClient.get().uri("/billq/{id}",id)
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .retrieve()
                 .bodyToMono(String.class)
                 .map(bill -> finalPlan + bill)
-                .log("Customer billq: ");*/
+                .log("Customer billq: ");
 
 
 
-        return billq;
+        //return billq;
 
     }
 
